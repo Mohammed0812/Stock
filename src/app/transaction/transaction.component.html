@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Transaction</h2>
+    <label>S.No</label>
+    <input type="number" [(ngModel)] = 'no' placeholder="s.no">
+    <select [(ngModel)] = 'type'>
+        <option>Fruit</option>
+        <option>Vegetables</option>
+    </select>
+    <select [(ngModel)] = 'name'>
+        <option>Apple</option>
+        <option>Mango</option>
+        <option>Tomato</option>
+        <option>Banana</option>
+        <option>Orange</option>
+        <option>Onion</option>
+        <option>Potato </option>
+        <option>Watermelon</option>
+    </select>
+    <input type="date" [(ngModel)] = 'date'>
+    <input type="number" [(ngModel)] = 'sales' placeholder="Product Sales">
+    <br><br>
+    <button (click) = 'add()'>Add</button>
+    <br><br>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Sales</th>
+            <th>Remaining</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor = "let x of transaction; let i = index">
+            <td>{{x.No}}</td>
+            <td>{{x.Type}}</td>
+            <td>{{x.Name}}</td>
+            <td>{{x.Dates}}</td>
+            <td>{{x.Sales}}</td>
+            <td></td>
+            <td><button (click)="delete(i)">Delete</button></td>
+        </tr>
+    </table>
+</div>
