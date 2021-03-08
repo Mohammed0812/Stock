@@ -1,13 +1,42 @@
-<div class="container">
-    <h2>Report</h2>
-    <table>
-        <tr>
-            <th>S.no</th>
-            <th>Name</th>
-            <th>Sales In</th>
-            <th>Sales Out</th>
-            <th>Balance</th>
-        </tr>
-    </table>
-
-</div>
+<a class="dropbtn" routerLink=''>CLOSE</a>
+<h2>Report</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let x of products; let i = index">
+    <td>{{x.name}}</td>
+    <td>{{x.price}}</td>
+  </tr>
+</table>
+<br><br>
+<label>Name
+  <select [(ngModel)]='rname'>
+    <option *ngFor="let x of products">{{x.name}}</option>
+  </select>
+</label>
+<br><br>
+<button (click)='addReport()'>Submit</button>
+<table>
+  <tr>
+    <th>S.no</th>
+    <th>Name</th>
+    <th>Quantity In</th>
+    <th>Quantity Out</th>
+    <th>Balance Quantity</th>
+    <th>Total Price</th>
+  </tr>
+  <tr *ngFor='let r of reports,let i = index'>
+    <td>{{i + 1}}.</td>
+    <td>{{r.Name}}</td>
+    <td>in</td>
+    <td>out</td>
+    <td>in - out</td>
+    <td>{{r.totals}}</td>
+  </tr>
+  <tr>
+    <td colspan="5">Total</td>
+    <td>{{sum}}</td>
+  </tr>
+</table>
