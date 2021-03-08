@@ -8,26 +8,24 @@ import { Component, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
 
   fname:any = '';
-  fprice:any;
-  fquant:any; 
-  product:any = [];
+  fprice:any; 
+  products:any = [];
   constructor() {
-    let a = localStorage.getItem('product');
+    let a = localStorage.getItem('products');
     if (a) {
-      this.product = JSON.parse(a);
+      this.products = JSON.parse(a);
     }
    }
   addProduct() {
     let p = {
       name: this.fname,
-      price: this.fprice,
-      quant: this.fquant
+      price: this.fprice
     }
-    this.product.push(p);
-    localStorage.setItem('product', JSON.stringify(this.product));
+    this.products.push(p);
+    localStorage.setItem('products', JSON.stringify(this.products));
   }
   delete(i: any) {
-    this.product.splice(i, 1);
+    this.products.splice(i, 1);
   }
   ngOnInit(): void {
   }
