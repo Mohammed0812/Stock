@@ -8,25 +8,25 @@ import { Component, OnInit } from '@angular/core';
 export class TransactionComponent implements OnInit {
 
   no:any;
+  date:any = new Date().getDate() + '/' + (new Date().getMonth() + 1 ) + '/' + new Date().getFullYear();
+  fname:any;
   type:any;
-  name:any;
-  sales:any;
-  date:any;
+  quantity:any;
   transaction:any = [
   ];
   constructor() {
     let a = localStorage.getItem('transaction');
     if (a) {
       this.transaction = JSON.parse(a);
-    }
+    } 
   }
   add() {
     let t = {
       No: this.no,
-      Type: this.type,
-      Name: this.name,
       Dates: this.date,
-      Sales: this.sales
+      Name: this.fname,
+      Type: this.type,
+      Quantity: this.quantity
     }
     this.transaction.push(t);
     localStorage.setItem('transaction', JSON.stringify(this.transaction));
