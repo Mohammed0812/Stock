@@ -1,13 +1,10 @@
 <a class="dropbtn" routerLink=''>CLOSE</a>
 <h2>Transaction</h2>
-<label>Product Name</label>
-<select [(ngModel)]='fname'>
-    <option>Apple</option>
-    <option>Mango</option>
-    <option>Banana</option>
-    <option>Orange</option>
-    <option>Watermelon</option>
-</select>
+<label>Name
+    <select [(ngModel)]='fname'>
+      <option *ngFor="let x of products">{{x.name}}</option>
+    </select>
+  </label>
 <label>Quantity Type</label>
 <select [(ngModel)]='type'>
     <option>In</option>
