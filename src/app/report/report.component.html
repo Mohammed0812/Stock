@@ -16,6 +16,10 @@
     <option *ngFor="let x of products">{{x.name}}</option>
   </select>
 </label>
+<label>Price</label>
+<select [(ngModel)] ="rprice">
+  <option *ngFor="let x of products">{{x.price}}</option>
+</select>
 <br><br>
 <button (click)='addReport()'>Submit</button>
 <table>
@@ -25,14 +29,14 @@
     <th>purchase Quantity</th>
     <th>Selling Quantity</th>
     <th>Balance Quantity</th>
-    <th>Total Price</th>
+    <th>Total Selling Price</th>
   </tr>
   <tr *ngFor='let r of reports,let i = index'>
     <td>{{i + 1}}.</td>
     <td>{{r.Name}}</td>
-    <td>in</td>
-    <td>out</td>
-    <td>in - out</td>
+    <td>{{r.In}}</td>
+    <td>{{r.Out}}</td>
+    <td>{{r.Balance}}</td>
     <td>{{r.totals}}</td>
   </tr>
   <tr>
