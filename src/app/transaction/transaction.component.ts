@@ -12,12 +12,17 @@ export class TransactionComponent implements OnInit {
   fname:any;
   type:any;
   quantity:any;
+  products:any = [];
   transaction:any = [
   ];
   constructor() {
-    let a = localStorage.getItem('transaction');
+    let a = localStorage.getItem('products');
     if (a) {
-      this.transaction = JSON.parse(a);
+      this.products = JSON.parse(a);
+    }
+    let b = localStorage.getItem('transaction');
+    if (b) {
+      this.transaction = JSON.parse(b);
     } 
   }
   add() {
