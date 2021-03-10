@@ -1,20 +1,15 @@
 <a class="dropbtn" routerLink=''>CLOSE</a>
 <h2>Transaction</h2>
-<label>Name
-    <select [(ngModel)]='fname'>
-      <option *ngFor="let x of products">{{x.name}}</option>
-    </select>
-  </label>
-<label>Quantity Type</label>
-<select [(ngModel)]='type'>
-    <option>In</option>
-    <option>Out</option>
+<label>Name</label>
+<select [(ngModel)]='fname'>
+    <option *ngFor="let x of products" >{{x.name}}</option>
 </select>
+<br><br>
 <label>Quantity</label>
-<input type="number" [(ngModel)]='quantity'>
+<input type="number" [(ngModel)]='quantity' placeholder="enter quantity">
 <br><br>
-<button (click)='add()'>Add</button>
-<br><br>
+<button (click)='in()'>In</button>
+<button (click)='out()'>Out</button>
 <table>
     <tr>
         <th>S.No</th>
@@ -24,12 +19,12 @@
         <th>Quantity</th>
         <th>Delete</th>
     </tr>
-    <tr *ngFor="let x of transaction; let i = index">
+    <tr *ngFor="let y of transaction; let i = index">
         <td>{{i + 1}}.</td>
-        <td>{{x.Dates}}</td>
-        <td>{{x.Name}}</td>
-        <td>{{x.Type}}</td>
-        <td>{{x.Quantity}}</td>
+        <td>{{y.Dates}}</td>
+        <td>{{y.Name}}</td>
+        <td>{{y.Type}}</td>
+        <td>{{y.Quantity}}</td>
         <td><button (click)="delete(i)">Delete</button></td>
     </tr>
 </table>
