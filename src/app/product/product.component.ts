@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
       price: this.fprice
     }
     this.products.push(p);
+    
     localStorage.setItem('products', JSON.stringify(this.products));
   }
   delete(i: any) {
