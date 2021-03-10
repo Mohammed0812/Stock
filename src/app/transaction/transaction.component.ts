@@ -13,8 +13,8 @@ export class TransactionComponent implements OnInit {
   type:any;
   quantity:any;
   products:any = [];
-  transaction:any = [
-  ];
+  transaction:any = [];
+  value:any;
   constructor() {
     let a = localStorage.getItem('products');
     if (a) {
@@ -25,12 +25,24 @@ export class TransactionComponent implements OnInit {
       this.transaction = JSON.parse(b);
     } 
   }
-  add() {
+
+  in() {
     let t = {
       No: this.no,
       Dates: this.date,
       Name: this.fname,
-      Type: this.type,
+      Type: this.type='in',
+      Quantity: this.quantity
+    }
+    this.transaction.push(t);
+    localStorage.setItem('transaction', JSON.stringify(this.transaction));
+  }
+  out() {
+    let t = {
+      No: this.no,
+      Dates: this.date,
+      Name: this.fname,
+      Type: this.type='out',
       Quantity: this.quantity
     }
     this.transaction.push(t);
@@ -39,7 +51,9 @@ export class TransactionComponent implements OnInit {
   delete(i: any) {
     this.transaction.splice(i, 1);
   }
+  
+  
   ngOnInit(): void {
   }
-
+  
 }
