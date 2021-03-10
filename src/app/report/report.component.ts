@@ -8,15 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class ReportComponent implements OnInit {
 
   fname:any = '';
-  fprice:any; 
+  fprice:any=0; 
   products:any = [];
-  rname:any;
-  rprice:any;
-  in:any = 130
-  out:any = 100
-  sum:any = 0;
+  in:any = 130;
+  out:any = 100;
   total:any = 1;
-  reports:any = [];
+  reports:any = [
+    {
+      Name:this.fname,
+      price:this.fprice,
+      In:this.in,
+      Out:this.out,
+      Balance:this.in - this.out,
+      totals:this.out * this.fprice
+    }
+  ];
   constructor() {
     
     let a = localStorage.getItem('products');
@@ -24,19 +30,9 @@ export class ReportComponent implements OnInit {
       this.products = JSON.parse(a);
     }
    }
-  addReport() {
-    let c = {
-      Name:this.rname,
-      In:this.in,
-      Out:this.out,
-      Balance:this.in - this.out,
-      totals:this.out * this.rprice
-    }
-    this.reports.push(c);
-    this.sum = this.reports.reduce((a: number, b: any) => {
+   sum:any = this.reports.reduce((a: number, b: any) => {
       return a + parseInt(b.totals);
     }, 0);
-  }
   ngOnInit(): void {
   }
 
