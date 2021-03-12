@@ -1,9 +1,14 @@
+* {
+    box-sizing: border-box;
+}
 h2 {
+    background-color: yellow;
     color: rgb(255, 0, 76);
     text-transform: uppercase;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 0;
-    margin-left: 150px;
+    padding: 1px;
+    text-align: center;
     font-size: 30px;
 }
 input {
@@ -23,6 +28,7 @@ th {
 }
 td {
     background-color: white;
+    text-align: center;
 }
 table {
     width: 50%;
