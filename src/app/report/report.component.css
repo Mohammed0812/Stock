@@ -1,9 +1,11 @@
 h2 {
+    background-color: yellow;
     color: rgb(255, 0, 76);
+    text-align: center;
     text-transform: uppercase;
     font-family: 'Times New Roman', Times, serif;
     margin-top: 0;
-    margin-left: 150px;
+    padding: 1px;
     font-size: 30px;
 }
 input {
