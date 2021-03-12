@@ -11,14 +11,14 @@
     <th>Balance Quantity</th>
     <th>Total Selling Price</th>
   </tr>
-  <tr *ngFor='let x of products,let r of reports,let i = index'>
+  <tr *ngFor='let x of products,let i = index'>
     <td>{{i + 1}}.</td>
-    <td>{{r.Name}}</td>
-    <td>{{r.price}}</td>
-    <td>{{r.In}}</td>
-    <td>{{r.Out}}</td>
-    <td>{{r.Balance}}</td>
-    <td>{{r.totals}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.price}}</td>
+    <td>{{x.In}}</td>
+    <td>{{x.Out}}</td>
+    <td>{{x.Balance}}</td>
+    <td>{{x.totals}}</td>
   </tr>
   <tr>
     <td colspan="6">Total</td>
