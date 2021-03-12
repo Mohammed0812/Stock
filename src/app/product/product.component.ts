@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   addProduct() {
     let p = {
       name: this.fname,
-      price: this.fprice
+      price: this.fprice,
     }
     this.products.push(p);
     
