@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionComponent implements OnInit {
 
-  no:any;
-  date:any = new Date().getDate() + '/' + (new Date().getMonth() + 1 ) + '/' + new Date().getFullYear();
-  fname:any;
-  type:any;
-  quantity:any;
-  products:any = [];
-  transaction:any = [];
-  value:any;
+  no: any;
+  date: any;
+  fname: any;
+  type: any;
+  quantity: any;
+  products: any = [];
+  transaction: any = [];
+  value: any;
   constructor() {
     let a = localStorage.getItem('products');
     if (a) {
@@ -23,7 +23,7 @@ export class TransactionComponent implements OnInit {
     let b = localStorage.getItem('transaction');
     if (b) {
       this.transaction = JSON.parse(b);
-    } 
+    }
   }
 
   in() {
@@ -31,7 +31,7 @@ export class TransactionComponent implements OnInit {
       No: this.no,
       Dates: this.date,
       Name: this.fname,
-      Type: this.type='in',
+      Type: this.type = 'in',
       Quantity: this.quantity
     }
     this.transaction.push(t);
@@ -42,7 +42,7 @@ export class TransactionComponent implements OnInit {
       No: this.no,
       Dates: this.date,
       Name: this.fname,
-      Type: this.type='out',
+      Type: this.type = 'out',
       Quantity: this.quantity
     }
     this.transaction.push(t);
@@ -51,9 +51,17 @@ export class TransactionComponent implements OnInit {
   delete(i: any) {
     this.transaction.splice(i, 1);
   }
-  
-  
+  changeName() {
+    let obj: any = this.transaction.filter((o: any) => o.Name === 'Apple');
+    console.log(obj);
+    let result = obj.reduce((a: any, b: any) => {
+      a[b.Name] = (a[b.Name] || 0) + b.Quantity;
+      return a;
+    }, {});
+    console.log(result);
+  }
+
   ngOnInit(): void {
   }
-  
+
 }
