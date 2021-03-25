@@ -10,6 +10,7 @@ export class ReportComponent implements OnInit {
   fname:any = '';
   fprice:any=0; 
   products:any = [];
+  transaction:any = [];
   in:any = 130;
   out:any = 100;
   total:any = 1;
@@ -29,10 +30,25 @@ export class ReportComponent implements OnInit {
     if (a) {
       this.products = JSON.parse(a);
     }
+    let b = localStorage.getItem('transaction');
+    if (b) {
+      this.transaction = JSON.parse(b);
+    }
    }
    sum:any = this.reports.reduce((a: number, b: any) => {
       return a + parseInt(b.totals);
     }, 0);
+
+    changeReport() {
+      let obj1 = this.transaction.filter((o:any) =>  (o.Name === o.Name) && (o.Type === 'in'));
+      let result1 = obj1.reduce((a:any, b:any) => {
+    a[b.Name] = (a[b.Name] || 0) + b.Quantity;
+    return a;
+  }, {});
+  console.table(this.transaction);
+  console.table(obj1);
+  console.log(result1);
+    }
   ngOnInit(): void {
   }
 

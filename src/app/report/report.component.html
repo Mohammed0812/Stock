@@ -1,5 +1,18 @@
 <a class="dropbtn" routerLink=''>CLOSE</a>
 <h2>Report</h2>
+<table>
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let x of products; let i = index">
+    <td>{{i + 1}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.price}}</td>
+  </tr>
+</table>
+<br><br>
 
 <table>
   <tr>
@@ -11,17 +24,19 @@
     <th>Balance Quantity</th>
     <th>Total Selling Price</th>
   </tr>
-  <tr *ngFor='let x of products,let i = index'>
+  <tr *ngFor="let y of transaction;let i = index">
     <td>{{i + 1}}.</td>
-    <td>{{x.name}}</td>
-    <td>{{x.price}}</td>
-    <td>{{x.In}}</td>
-    <td>{{x.Out}}</td>
-    <td>{{x.Balance}}</td>
-    <td>{{x.totals}}</td>
+    <td>{{y.Name}}</td>
+    <td>{{y.price}}</td>
+    <td>{{y.In}}</td>
+    <td>{{y.Out}}</td>
+    <td>{{y.Balance}}</td>
+    <td>{{y.totals}}</td>
   </tr>
   <tr>
     <td colspan="6">Total</td>
     <td>{{sum}}</td>
   </tr>
 </table>
+<br><br>
+<button (click)="changeReport()">Add</button>

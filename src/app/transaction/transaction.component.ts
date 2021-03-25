@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TransactionComponent implements OnInit {
 
   no: any;
-  date: any;
+  date: any = new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear();
   fname: any;
   type: any;
   quantity: any;
@@ -52,13 +52,18 @@ export class TransactionComponent implements OnInit {
     this.transaction.splice(i, 1);
   }
   changeName() {
-    let obj: any = this.transaction.filter((o: any) => o.Name === 'Apple');
+    let obj: any = this.transaction.filter((o: any) => (o.Name === 'Apple') && (o.Type === o.Type));
     console.log(obj);
     let result = obj.reduce((a: any, b: any) => {
       a[b.Name] = (a[b.Name] || 0) + b.Quantity;
       return a;
     }, {});
     console.log(result);
+
+    let name = (JSON.stringify(this.transaction)).split(' ');
+    let unique = [...new Set(name)];
+    let word = unique.join(" ");
+    console.log(word);
   }
 
   ngOnInit(): void {
